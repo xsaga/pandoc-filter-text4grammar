@@ -34,7 +34,7 @@ function Span (elem)
 end
 
 function Code (elem)
-   return pandoc.RawInline("tex", elem.text)
+   return pandoc.RawInline("plain", elem.text)
 end
 
 function Link (elem)
@@ -49,7 +49,7 @@ end
 
 function Math (elem)
    if elem.mathtype == "InlineMath" then
-      return pandoc.RawInline("tex", elem.text)
+      return pandoc.RawInline("plain", elem.text)
    end
    return {}
 end
