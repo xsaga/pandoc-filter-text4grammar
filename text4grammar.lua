@@ -4,7 +4,7 @@
 
 -- 2023/02/08
 
--- pandoc --wrap=none --lua-filter text4grammar.lua -o output.txt sample.tex
+-- pandoc --wrap=none --lua-filter text4grammar.lua -f latex -t plain -o output.txt sample.tex
 
 -- function Header ()
 --    return {}
