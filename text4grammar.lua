@@ -3,6 +3,7 @@
 -- info to debug lua filters: https://github.com/wlupton/pandoc-lua-logging
 
 -- 2023/02/08
+-- 2023/06/15 Update Cite function to be aware of \citeauthor citation types
 
 -- pandoc --wrap=none --lua-filter text4grammar.lua -f latex -t plain -o output.txt sample.tex
 
@@ -10,7 +11,10 @@
 --    return {}
 -- end
 
-function Cite ()
+function Cite (elem)
+   if elem.citations[1].mode == "AuthorInText" then
+      return pandoc.Str("Smith et al.")
+   end
    return pandoc.Str("(Reference 2023, 3)")
 end
 
